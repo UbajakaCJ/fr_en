@@ -2,7 +2,8 @@ import gradio as gr
 import numpy as np
 from transformers import pipeline
 
-pipe = pipeline("translation", model="t5-base")
+model_checkpoint = "Helsinki-NLP/opus-mt-fr-en"
+pipe = pipeline("translation", model=model_checkpoint)
 
 def translate(text):
     return pipe(text)[0]["translation_text"]
